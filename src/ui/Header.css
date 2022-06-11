@@ -60,10 +60,10 @@ header {
 .header-content .header-info .header-label .label {
   display: none;
 }
-.mobile .header-content .header-info .header-label .label.header-label-long {
+.desktop .header-content .header-info .header-label .label.header-label-long {
   display: block;
 }
-.desktop .header-content .header-info .header-label .label.header-label-short {
+.mobile .header-content .header-info .header-label .label.header-label-short {
   display: block;
 }
 .header-content .header-info .header-label .header-highlight {
