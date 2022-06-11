@@ -3,27 +3,29 @@
 @header-primary-color: #fff;
 @header-secondary-color: #5a5b5c;
 
-.flex-centered{
+.flex-centered {
   display: flex;
   align-items: center;
   align-content: center;
 }
 
 header {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
   padding: 0 20px;
-  height: @header-height;
+  min-height: @header-height;
   font-weight: 600;
   box-shadow: 0 0 7px #212121;
 
   .flex-centered;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
 .header-logo {
+  padding: 10px 10px 10px 0;
   font-size: 1.5rem;
   line-height: 1.5rem;
   color: @header-primary-color;
@@ -35,14 +37,44 @@ header {
   .flex-centered;
   justify-content: flex-end;
 
-  .header-label {
-    color: @header-secondary-color;
-    font-weight: 500;
+  .header-info {
+    .flex-centered;
+    justify-content: center;
 
-    & .header-highlight {
-      color: @header-primary-color;
-      text-decoration: underline;
-      font-weight: 600;
+    .icon-i {
+      .flex-centered;
+      justify-content: center;
+
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      border: 1px solid @header-secondary-color;
+      text-align: center;
+      color: @header-secondary-color;
+    }
+
+    .header-label {
+      white-space: nowrap;
+      margin: 0 10px;
+      color: @header-secondary-color;
+      font-weight: 500;
+
+      .label{
+        display: none;
+
+        .mobile &.header-label-long{
+          display: block;
+        }
+        .desktop &.header-label-short{
+          display: block;
+        }
+      }
+
+      & .header-highlight {
+        color: @header-primary-color;
+        text-decoration: underline;
+        font-weight: 600;
+      }
     }
   }
 }
@@ -50,7 +82,6 @@ header {
 .button {
   width: 88px;
   height: 30px;
-  margin-left: 10px;
   padding: 0 14px;
   border: none;
   border-radius: 5px;
@@ -66,26 +97,4 @@ header {
   white-space: nowrap;
   text-align: center;
   cursor: pointer;
-}
-
-.header-info {
-  .flex-centered;
-  justify-content: center;
-
-  .icon-i {
-    .flex-centered;
-    justify-content: center;
-  
-    margin: 0 10px;
-    height: 20px;
-    width: 20px;
-    border-radius: 50%; 
-    border: 1px solid @header-secondary-color;
-    text-align: center;
-    color: @header-secondary-color;
-  }
-
-  .header-label {
-   min-width: 90px;
-  }
 }

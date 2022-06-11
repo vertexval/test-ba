@@ -31,7 +31,8 @@ function Header() {
             </div>
           </div>
           <div className="header-label">
-            Press <span className="header-highlight">spacebar</span> to shuffle or
+            <div className="header-label-long label">Press <span className="header-highlight">spacebar</span> to shuffle or</div>
+            <div className="header-label-short label">To shuffle</div>
           </div>
         </div>
         <Button class="button" onClick={counterHandler} label="Click here" />

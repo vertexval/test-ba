@@ -4,20 +4,22 @@
   align-content: center;
 }
 header {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
   padding: 0 20px;
-  height: 40px;
+  min-height: 40px;
   font-weight: 600;
   box-shadow: 0 0 7px #212121;
   display: flex;
   align-items: center;
   align-content: center;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 .header-logo {
+  padding: 10px 10px 10px 0;
   font-size: 1.5rem;
   line-height: 1.5rem;
   color: #fff;
@@ -31,11 +33,40 @@ header {
   align-content: center;
   justify-content: flex-end;
 }
-.header-content .header-label {
+.header-content .header-info {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+.header-content .header-info .icon-i {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 1px solid #5a5b5c;
+  text-align: center;
+  color: #5a5b5c;
+}
+.header-content .header-info .header-label {
+  white-space: nowrap;
+  margin: 0 10px;
   color: #5a5b5c;
   font-weight: 500;
 }
-.header-content .header-label .header-highlight {
+.header-content .header-info .header-label .label {
+  display: none;
+}
+.mobile .header-content .header-info .header-label .label.header-label-long {
+  display: block;
+}
+.desktop .header-content .header-info .header-label .label.header-label-short {
+  display: block;
+}
+.header-content .header-info .header-label .header-highlight {
   color: #fff;
   text-decoration: underline;
   font-weight: 600;
@@ -43,7 +74,6 @@ header {
 .button {
   width: 88px;
   height: 30px;
-  margin-left: 10px;
   padding: 0 14px;
   border: none;
   border-radius: 5px;
@@ -56,26 +86,4 @@ header {
   white-space: nowrap;
   text-align: center;
   cursor: pointer;
-}
-.header-info {
-  display: flex;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
-}
-.header-info .icon-i {
-  display: flex;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
-  margin: 0 10px;
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  border: 1px solid #5a5b5c;
-  text-align: center;
-  color: #5a5b5c;
-}
-.header-info .header-label {
-  min-width: 90px;
 }
