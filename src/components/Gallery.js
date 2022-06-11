@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import Header from "../ui/Header";
 import GalleryList from "./GalleryList";
 import axios from "axios";
+import isMobile from "is-mobile";
 
 const giphyUrl = process.env.REACT_APP_GIPHYURL;
 const giphyKey = process.env.REACT_APP_APIKEY;
@@ -42,9 +43,11 @@ function Gallery() {
 
     // transform feed
     data.forEach((dataItem) => {
+      // smaller in weight images for mobile
+      let gifUrl = !isMobile() ? dataItem.images["downsized"].url : dataItem.images["downsized_medium"].url;
       let item = {
         id: dataItem.id,
-        url: dataItem.images["downsized_medium"].url,
+        url: gifUrl,
       };
 
       transformedData.push(item);
