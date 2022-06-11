@@ -3,6 +3,12 @@
 @header-primary-color: #fff;
 @header-secondary-color: #5a5b5c;
 
+.flex-centered{
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+
 header {
   position: absolute;
   top: 0;
@@ -13,9 +19,8 @@ header {
   font-weight: 600;
   box-shadow: 0 0 7px #212121;
 
-  display: flex;
+  .flex-centered;
   justify-content: space-between;
-  align-content: center;
 }
 
 .header-logo {
@@ -23,15 +28,11 @@ header {
   line-height: 1.5rem;
   color: @header-primary-color;
 
-  display: flex;
-  align-items: center;
-  align-content: center;
+  .flex-centered;
 }
 
 .header-content {
-  display: flex;
-  align-items: center;
-  align-content: center;
+  .flex-centered;
   justify-content: flex-end;
 
   .header-label {
@@ -50,6 +51,7 @@ header {
   width: 88px;
   height: 30px;
   margin-left: 10px;
+  padding: 0 14px;
   border: none;
   border-radius: 5px;
   background-color: @button-bg-color;
@@ -66,24 +68,24 @@ header {
   cursor: pointer;
 }
 
-.header-info{
-    display: inline-flex;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-}
+.header-info {
+  .flex-centered;
+  justify-content: center;
 
-.icon-i{
-    display: inline-flex;
-    align-items: center;
-    align-content: center;
+  .icon-i {
+    .flex-centered;
     justify-content: center;
-
-    margin-right: 10px;
-    height: 20px; 
+  
+    margin: 0 10px;
+    height: 20px;
     width: 20px;
-    border-radius: 50%;
+    border-radius: 50%; 
     border: 1px solid @header-secondary-color;
     text-align: center;
     color: @header-secondary-color;
+  }
+
+  .header-label {
+   min-width: 90px;
+  }
 }

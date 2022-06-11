@@ -1,22 +1,19 @@
 import { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 import Header from "../ui/Header";
 import GalleryList from "./GalleryList";
 import axios from "axios";
 
-const giphyUrl = "https://api.giphy.com/v1/gifs/trending";
-const giphyKey = "ccX6r8CCLeGlyB8VamX40o2XgRIWeSFP";
-const galleryLn = 12;
+const giphyUrl = process.env.REACT_APP_GIPHYURL;
+const giphyKey = process.env.REACT_APP_APIKEY;
+const galleryLn = parseInt(process.env.REACT_APP_GALLERYLN);
 
 function Gallery() {
   const [feed, setFeed] = useState(null);
-  const dispatch = useDispatch();
   const filterStore = useSelector((state) => state.lock);
 
   useEffect(() => {
-    //const gifs = filterStore.gifs;
-    //const gifsLn = gifs !== null ? filterStore.gifs.length : 0;
 
     axios(giphyUrl, {
       params: {

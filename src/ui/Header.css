@@ -1,3 +1,8 @@
+.flex-centered {
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
 header {
   position: absolute;
   top: 0;
@@ -8,8 +13,9 @@ header {
   font-weight: 600;
   box-shadow: 0 0 7px #212121;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
   align-content: center;
+  justify-content: space-between;
 }
 .header-logo {
   font-size: 1.5rem;
@@ -38,6 +44,7 @@ header {
   width: 88px;
   height: 30px;
   margin-left: 10px;
+  padding: 0 14px;
   border: none;
   border-radius: 5px;
   background-color: #4327f5;
@@ -51,21 +58,24 @@ header {
   cursor: pointer;
 }
 .header-info {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   align-content: center;
   justify-content: center;
 }
-.icon-i {
-  display: inline-flex;
+.header-info .icon-i {
+  display: flex;
   align-items: center;
   align-content: center;
   justify-content: center;
-  margin-right: 10px;
+  margin: 0 10px;
   height: 20px;
   width: 20px;
   border-radius: 50%;
   border: 1px solid #5a5b5c;
   text-align: center;
   color: #5a5b5c;
+}
+.header-info .header-label {
+  min-width: 90px;
 }

@@ -25,8 +25,10 @@ function Header() {
       </div>
       <div className="header-content">
         <div className="header-info">
-          <div className="icon-i">
-            <span>i</span>
+          <div className="icon-container">
+            <div className="icon-i">
+              <span>i</span>
+            </div>
           </div>
           <div className="header-label">
             Press <span className="header-highlight">spacebar</span> to shuffle or
