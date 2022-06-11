@@ -29,19 +29,18 @@ function Gallery() {
   }, [filterStore.counter]);
 
   function transformFeed(data) {
-    let transformedData = [];
-    let feedData = new Array(galleryLn).fill(0);
-    let filteredData = [];
     const lockedGifs = filterStore.gifs;
-
-    // sorting by import date (descending)
+    let feedData = new Array(galleryLn).fill(0);
+    let transformedData = [];
+    let filteredData = [];
+ 
+    // sorting (descending)
     data.sort((a, b) => {
       let dateA = new Date(a.import_datetime).getTime();
       let dateB = new Date(b.import_datetime).getTime();
       return parseFloat(dateA) < parseFloat(dateB) ? 1 : -1;
     });
 
-    // transform feed
     data.forEach((dataItem) => {
       // smaller in weight images for mobile
       let gifUrl = isMobile() ? dataItem.images["downsized"].url : dataItem.images["downsized_medium"].url;
@@ -53,39 +52,19 @@ function Gallery() {
       transformedData.push(item);
     });
 
-    // check IF there are locked gifs
-    // IF not return standard feed
     if (lockedGifs) {
-      // filter duplicate gifs
-      filteredData = transformedData.filter((gif) => {
-        let isDuplicate = false;
-
-        for (let i = 0; lockedGifs.length > i; i++) {
-          if (gif.id === lockedGifs[i].id) {
-            isDuplicate = true;
-            break;
-          }
-        }
-
-        return !isDuplicate;
-      });
-
-      // assign locked gifs to their indexes
       lockedGifs.forEach((gif) => {
         feedData[gif.index] = gif;
       });
 
-      // assign new gifs to empty indexes
-      filteredData.forEach((item) => {
-        feedData.some(function (val, index) {
-          let isEmpty = val === 0;
+      filteredData = transformedData.filter((gif) => {
+        return !lockedGifs.some(item => item.id === gif.id);
+      });
 
-          if (isEmpty) {
-            feedData[index] = item;
-          }
-
-          return isEmpty;
-        });
+      feedData.forEach(function (val, index) {
+        if (val === 0) {
+          feedData[index] = filteredData.shift();
+        }
       });
 
       return feedData;
