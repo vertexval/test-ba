@@ -62,18 +62,18 @@
   left: 0;
   width: 100%;
   height: 100%;
-  border: 5px solid #4327f5;
-  background: rgba(0, 0, 0, 0.3);
+  border: 4px solid #4327f5;
+  background: rgba(0, 0, 0, 0.2);
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
   color: #fff;
-  font-size: 14px;
+  font-size: inherit;
   line-height: 1rem;
-  font-weight: 600;
+  font-weight: 500;
 }
 .image-lock .lock-icon {
   height: 1rem;
-  margin-right: 10px;
+  margin-right: 8px;
   display: flex;
   align-items: center;
   align-content: center;
@@ -84,7 +84,7 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  padding: 10px;
+  padding: 12px;
   visibility: hidden;
   display: flex;
   align-items: center;

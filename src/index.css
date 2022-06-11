@@ -9,7 +9,8 @@ body {
 body {
   font-size: 12px;
   text-rendering: optimizeLegibility;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
 }
 
 * {

@@ -3,15 +3,13 @@
   align-items: center;
   align-content: center;
 }
-header {
+header,
+#header {
   position: relative;
-  top: 0;
-  left: 0;
   width: 100%;
   padding: 0 20px;
   min-height: 40px;
-  font-weight: 600;
-  box-shadow: 0 0 7px #212121;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
   align-content: center;
@@ -19,8 +17,8 @@ header {
 }
 .header-logo {
   padding-right: 10px;
-  font-size: 1.5rem;
-  line-height: 1.5rem;
+  font-size: 22px;
+  font-weight: 900;
   color: #fff;
   display: flex;
   align-items: center;
@@ -46,15 +44,15 @@ header {
   height: 20px;
   width: 20px;
   border-radius: 50%;
-  border: 1px solid #5a5b5c;
+  border: 1px solid #636465;
   text-align: center;
-  color: #5a5b5c;
+  color: #636465;
 }
 .header-content .header-info .header-label {
   white-space: nowrap;
-  margin: 0 10px;
-  color: #5a5b5c;
-  font-weight: 500;
+  margin: 0 8px;
+  color: #636465;
+  font-weight: 400;
 }
 .header-content .header-info .header-label .label {
   display: none;
@@ -68,7 +66,6 @@ header {
 .header-content .header-info .header-label .header-highlight {
   color: #fff;
   text-decoration: underline;
-  font-weight: 600;
 }
 .button {
   width: 88px;
@@ -79,6 +76,7 @@ header {
   background-color: #4327f5;
   text-decoration: none;
   display: inline-block;
+  font-family: inherit;
   font-size: inherit;
   font-weight: inherit;
   color: #fff;
