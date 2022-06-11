@@ -14,7 +14,6 @@ function Gallery() {
   const filterStore = useSelector((state) => state.lock);
 
   useEffect(() => {
-
     axios(giphyUrl, {
       params: {
         api_key: giphyKey,
@@ -34,6 +33,14 @@ function Gallery() {
     let filteredData = [];
     const lockedGifs = filterStore.gifs;
 
+    // sorting by import date (descending)
+    data.sort((a, b) => {
+      let dateA = new Date(a.import_datetime).getTime();
+      let dateB = new Date(b.import_datetime).getTime();
+      return parseFloat(dateA) < parseFloat(dateB) ? 1 : -1;
+    });
+
+    // transform feed
     data.forEach((dataItem) => {
       let item = {
         id: dataItem.id,
@@ -43,7 +50,10 @@ function Gallery() {
       transformedData.push(item);
     });
 
+    // check IF there are locked gifs
+    // IF not return standard feed
     if (lockedGifs) {
+      // filter duplicate gifs
       filteredData = transformedData.filter((gif) => {
         let isDuplicate = false;
 
@@ -57,20 +67,20 @@ function Gallery() {
         return !isDuplicate;
       });
 
-      if (lockedGifs !== null) {
-        lockedGifs.forEach((gif) => {
-          feedData[gif.index] = gif;
-        });
-      }
+      // assign locked gifs to their indexes
+      lockedGifs.forEach((gif) => {
+        feedData[gif.index] = gif;
+      });
 
+      // assign new gifs to empty indexes
       filteredData.forEach((item) => {
         feedData.some(function (val, index) {
           let isEmpty = val === 0;
-  
+
           if (isEmpty) {
             feedData[index] = item;
           }
-  
+
           return isEmpty;
         });
       });
@@ -79,7 +89,6 @@ function Gallery() {
     } else {
       return transformedData;
     }
-
   }
 
   return (
