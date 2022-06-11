@@ -44,7 +44,7 @@ function Gallery() {
     // transform feed
     data.forEach((dataItem) => {
       // smaller in weight images for mobile
-      let gifUrl = !isMobile() ? dataItem.images["downsized"].url : dataItem.images["downsized_medium"].url;
+      let gifUrl = isMobile() ? dataItem.images["downsized"].url : dataItem.images["downsized_medium"].url;
       let item = {
         id: dataItem.id,
         url: gifUrl,
