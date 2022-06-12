@@ -4,8 +4,8 @@ import Gallery from "./components/Gallery";
 function App() {
   const dispatch = useDispatch();
 
-  if (sessionStorage.lockedGifs) {
-    let storedGifs = JSON.parse(sessionStorage.lockedGifs);
+  if (localStorage.lockedGifs) {
+    const storedGifs = JSON.parse(localStorage.lockedGifs);
 
     if(storedGifs !== 'undefined'){
       dispatch({

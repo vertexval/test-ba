@@ -19,7 +19,7 @@ function GalleryList(props) {
 
   function addId(el) {
     lockArr = [...lockArr, { id: el.id, url: el.src, index: el.getAttribute("index"), locked: true }];
-    sessionStorage.setItem("lockedGifs", JSON.stringify(lockArr));
+    localStorage.setItem("lockedGifs", JSON.stringify(lockArr));
     filterData(lockArr);
   }
 
@@ -29,7 +29,7 @@ function GalleryList(props) {
     });
 
     lockArr = [...someArr];
-    sessionStorage.setItem("lockedGifs", JSON.stringify(lockArr));
+    localStorage.setItem("lockedGifs", JSON.stringify(lockArr));
     filterData(lockArr);
   }
 
