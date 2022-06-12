@@ -36,20 +36,19 @@ function Gallery() {
  
     // sorting (descending)
     data.sort((a, b) => {
-      let dateA = new Date(a.import_datetime).getTime();
-      let dateB = new Date(b.import_datetime).getTime();
+      const dateA = new Date(a.import_datetime).getTime();
+      const dateB = new Date(b.import_datetime).getTime();
       return parseFloat(dateA) < parseFloat(dateB) ? 1 : -1;
     });
 
-    data.forEach((dataItem) => {
-      // smaller in weight images for mobile
-      let gifUrl = isMobile() ? dataItem.images["downsized"].url : dataItem.images["downsized_medium"].url;
-      let item = {
+    transformedData = data.map((dataItem) => {
+      const gifUrl = isMobile() ? dataItem.images["downsized"].url : dataItem.images["downsized_medium"].url;
+      const item = {
         id: dataItem.id,
         url: gifUrl,
       };
 
-      transformedData.push(item);
+      return item;
     });
 
     if (lockedGifs) {

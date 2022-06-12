@@ -4,7 +4,7 @@ import unlockIcon from "../img/unlock-solid.svg";
 function GalleryItem(props) {
 
   function lockHandler(e){
-    let el = e.target;
+    const el = e.target;
     props.onClick(el);
   }
 

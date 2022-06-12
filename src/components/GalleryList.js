@@ -25,7 +25,7 @@ function GalleryList(props) {
   }
 
   function removeId(id) {
-    let someArr = lockArr.filter((obj) => {
+    const someArr = lockArr.filter((obj) => {
       return obj.id !== id;
     });
 
@@ -35,15 +35,15 @@ function GalleryList(props) {
   }
 
   const lockToggleHandler = (el) => {
-    let isLocked = el.getAttribute("data-locked") === 'true';
+    const isLocked = el.getAttribute("data-locked") === 'true';
 
     if (isLocked) {
-      let imgEl = el.querySelector('img');
+      const imgEl = el.querySelector('img');
       el.setAttribute("data-locked", false);
       removeId(imgEl.id);
     }
     if (!isLocked) {
-      let imgEl = el.querySelector('img');
+      const imgEl = el.querySelector('img');
       el.setAttribute("data-locked", true);
       addId(imgEl);
     }
