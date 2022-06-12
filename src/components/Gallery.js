@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
-import Header from "../ui/Header";
-import GalleryList from "./GalleryList";
 import axios from "axios";
 import isMobile from "is-mobile";
+import Header from "../ui/Header";
+import GalleryList from "./GalleryList";
+import "./Gallery.css";
 
 const giphyUrl = process.env.REACT_APP_GIPHYURL;
 const giphyKey = process.env.REACT_APP_APIKEY;

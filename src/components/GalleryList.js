@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
 
-import "./GalleryList.css";
 import GalleryItem from "./GalleryItem";
 
 function GalleryList(props) {
